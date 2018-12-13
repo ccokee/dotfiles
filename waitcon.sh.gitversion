@@ -1,0 +1,30 @@
+#!/bin/bash
+
+while ! wget -q --spider http://google.com
+do
+clear
+echo "Waiting for connection"
+sleep 0.5
+clear
+echo "Waiting for connection ."
+sleep 0.5
+clear
+echo "Waiting for connection .."
+sleep 0.5
+clear
+echo "Waitihg for connection ..."
+done
+
+case $1 in
+1)
+weechat
+;;
+2)
+;;
+3)
+;;
+4)
+;;
+esac
+exit 0
+
