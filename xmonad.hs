@@ -109,8 +109,8 @@ myStartupHook = do
     spawnOn "6:mayhem" "xfce4-terminal -e '/home/coke/.xmonad/waitcon.sh 4'"
     spawnOn "6:mayhem" "xfce4-terminal"
     spawnOn "8:com" "telegram-desktop"
-    spawnOn "1:cKlap" "xfce4-terminal -T htop -e 'htop' " --tab -T irssi -e '/home/coke/.xmonad/waitcon.sh 1'"
-    #spawnOn "1:cKlap" "xfce4-terminal -T htop -x htop"
+    spawnOn "1:cKlap" "xfce4-terminal -T htop -e 'htop' --tab -T irssi -e '/home/coke/.xmonad/waitcon.sh 1'"
+    -- #spawnOn "1:cKlap" "xfce4-terminal -T htop -x htop"
     spawnOn "1:cKlap" "xfce4-terminal -T ncmpcpp -e '/home/coke/.xmonad/music.sh'"
     spawnOn "1:cKlap" "xfce4-terminal -T connman -e 'screen wicd-curses' --tab -T audio -e 'alsamixer --card=0' --tab -T bash"
 
@@ -249,7 +249,7 @@ myDoFullFloat = doF W.focusDown <+> doFullFloat
 
 -- ### Key Bindings ### --
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
-    [ ((modMask,                    xK_p        ), spawn "ooffice")
+    [ ((modMask,                    xK_w        ), spawn "ooffice")
     , ((modMask,                    xK_k        ), spawn $ XMonad.terminal conf)
     , ((modMask,                    xK_F2       ), spawn "sudo s2ram")
     , ((modMask,                    xK_F12      ), spawn "sudo halt")
@@ -276,7 +276,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,                    xK_g        ), spawn "gimp")
     , ((modMask,                    xK_i        ), spawn "gedit --new-window") 
     , ((modMask,                    xK_v        ), spawn "VirtualBox")
-    , ((modMask,                    xK_w        ), spawn "sudo wireshark")
+    , ((modMask .|. controlMask,       xK_w        ), spawn "sudo wireshark")
     , ((modMask .|. shiftMask,      xK_w        ), spawn "sudo zenmap")
     , ((modMask,                    xK_o        ), spawn "/usr/bin/tor-browser_es-ES/start-tor-browser.desktop")
     , ((modMask .|. shiftMask,        xK_o        ), spawn "sudo /home/coke/.xmonad/torswitch.sh")

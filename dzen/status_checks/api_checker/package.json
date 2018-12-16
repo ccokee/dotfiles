@@ -1,5 +1,5 @@
 {
-  "name": "app1.js",
+  "name": "checker",
   "version": "1.0.0",
   "description": "Aplicacion restfull",
   "main": "app1.js",
@@ -10,8 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "cron": "^1.5.1",
+    "child_process": "^1.0.2",
+    "cron": "^1.6.0",
     "express": "^4.16.4",
-    "request": "^2.88.0"
-  }
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {}
 }
