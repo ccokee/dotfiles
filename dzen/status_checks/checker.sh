@@ -10,6 +10,8 @@
 ~/.xmonad/dzen/status_checks/status_weather.sh
 ) &
 
+~/.xmonad/dzen/status_checks/status_checker.sh &
+
 #===
 (while :; do
 

@@ -1,1 +1,1 @@
-notify-send -i /home/coke/Imágenes/Resources/Bitcoin.png "Baja el Bitcoin" "You suffer!" && mpg123 /home/coke/Napalm-Death-You-Suffer.mp3
+notify-send -i /home/coke/.xmonad/dzen/status_checks/api_checker/Bitcoin.png "Baja el Bitcoin" "Reproducioendo Napalm Death - You suffer!" && mpg123 ./Napalm-Death-You-Suffer.mp3

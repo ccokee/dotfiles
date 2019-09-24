@@ -2,7 +2,7 @@
 
 if [ "$(rc-service openvpn status | awk '{print $3}')" == "stopped" ]
 then
- rc-service openvpn start
+ rc-service openvpn.cKmtn start
 else
- rc-service openvpn stop
+ rc-service openvpn.cKmtn stop
 fi
