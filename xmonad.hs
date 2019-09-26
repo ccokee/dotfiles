@@ -135,10 +135,8 @@ myStartupHook = do
     spawnOn "com" "/home/coke/git/station/AppRun"
     spawnOn "com" "telegram-desktop"
     --spawnOn "com" "skypeforlinux"
-    spawnOn "cKlap" "xfce4-terminal -T Proc -e 'gotop' --tab -T bitchX -e '/home/coke/.xmonad/waitcon.sh 1'"
+    spawnOn "cKlap" "/home/coke/.xmonad/cKpanel.sh"
     -- #spawnOn "cKlap" "xfce4-terminal -T htop -x htop"
-    spawnOn "cKlap" "xfce4-terminal -T net -e 'screen wicd-curses' --tab -T audio -e 'alsamixer --card=0' --tab -T 'headset' -e 'alsamixer -D bluealsa' --tab -T ncmpcpp -e '/home/coke/.xmonad/music.sh'"
-    spawnOn "cKlap" "xfce4-terminal -T cKterm"
 
 -- ### ManageHook ### --
 myManageHook :: ManageHook
@@ -226,7 +224,7 @@ simpLayout = avoidStruts $ tiled ||| noBorders Full ||| Mirror tiled ||| simpleF
  
 vBoxLayout = avoidStruts $ noBorders simpleFloat ||| noBorders Full
  
-netLayout = avoidStruts $ smartBorders $ spacing 4 $ Grid ||| simpleFloat
+netLayout = avoidStruts $ smartBorders $ spacing 4 $ Mirror $ Grid ||| simpleFloat
     
 mediaLayout = avoidStruts $ smartBorders $ reflectHoriz Full
 

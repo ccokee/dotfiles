@@ -4,35 +4,35 @@ xmonad.hs:76:16: warning: [-Wdeprecations]
     (imported from XMonad.Actions.GridSelect):
     Deprecated: "Use def (from Data.Default, and re-exported from XMonad.Actions.GridSelect) instead."
 
-xmonad.hs:176:34: warning: [-Wdeprecations]
+xmonad.hs:174:34: warning: [-Wdeprecations]
     In the use of ‘defaultPP’ (imported from XMonad.Hooks.DynamicLog):
     Deprecated: "Use def (from Data.Default, and re-exported by XMonad.Hooks.DynamicLog) instead."
 
-xmonad.hs:217:12: warning: [-Wdeprecations]
+xmonad.hs:215:12: warning: [-Wdeprecations]
     In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
     Deprecated: "Use spacingRaw instead."
 
-xmonad.hs:221:13: warning: [-Wdeprecations]
+xmonad.hs:219:13: warning: [-Wdeprecations]
     In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
     Deprecated: "Use spacingRaw instead."
 
-xmonad.hs:225:13: warning: [-Wdeprecations]
+xmonad.hs:223:13: warning: [-Wdeprecations]
     In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
     Deprecated: "Use spacingRaw instead."
 
-xmonad.hs:229:42: warning: [-Wdeprecations]
+xmonad.hs:227:42: warning: [-Wdeprecations]
     In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
     Deprecated: "Use spacingRaw instead."
 
-xmonad.hs:254:5: warning: [-Wdeprecations]
+xmonad.hs:252:5: warning: [-Wdeprecations]
     In the use of ‘defaultXPConfig’ (imported from XMonad.Prompt):
     Deprecated: "Use def (from Data.Default, and re-exported from XMonad.Prompt) instead."
 
-xmonad.hs:282:61: warning: [-Wdeprecations]
+xmonad.hs:280:61: warning: [-Wdeprecations]
     In the use of ‘defaultGSConfig’
     (imported from XMonad.Actions.GridSelect):
     Deprecated: "Use def (from Data.Default, and re-exported from XMonad.Actions.GridSelect) instead."
 
-xmonad.hs:359:41: warning: [-Wtabs]
+xmonad.hs:357:41: warning: [-Wtabs]
     Tab character found here.
     Please use spaces instead.
