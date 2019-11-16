@@ -85,10 +85,10 @@ mymodMask = mod4Mask
 myWorkspaces = ["cKlap","www","dev","com","file","net","vm","media"]
 
 -- ### Bars/Dzen2  ### --
-myXmonadBar = "dzen2 -dock -x '0' -y '0' -h '18' -w '900' -ta 'l' -fg '#999999' -bg '#000000' -fn '-*-fixed-medium-*-*-*-12-*-*-*-*-*-iso8859-1' -e 'button2=;'"
-myTrayBar = "~/.xmonad/dzen/status_bars/dzen_secondary.sh | dzen2 -dock -x '900' -y '0' -h '18' -w '466' -ta 'r' -fg '#999999' -bg '#000000' -fn '-*-fixed-medium-*-*-*-12-*-*-*-*-*-iso8859-1' -e 'button2=;'"
-myStatusBar = "~/.xmonad/dzen/status_bars/dzen_main.sh | dzen2 -dock -x '0' -w '866' -y '750' -h '18' -fg '#999999' -bg '#000000' -ta 'l' -fn '-*-fixed-medium-*-*-*-12-*-*-*-*-*-iso8859-1' -e 'button2=;'"
-myMpdBar = "~/.xmonad/dzen/status_bars/dzen_audio.sh | dzen2 -dock -x '866' -w '500' -y '750' -h '18' -fg '#999999' -bg '#000000' -ta 'r' -fn '-*-fixed-medium-*-*-*-12-*-*-*-*-*-iso8859-1' -e 'button2=;'"
+myXmonadBar = "LANG=es dzen2 -dock -x '0' -y '0' -h '18' -w '900' -ta 'l' -fg '#999999' -bg '#000000' -fn '-xos4-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*' -e 'button2=;'"
+myTrayBar = "~/.xmonad/dzen/status_bars/dzen_secondary.sh | LANG=es dzen2 -dock -x '900' -y '0' -h '18' -w '466' -ta 'r' -fg '#999999' -bg '#000000' -fn '-xos4-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*' -e 'button2=;'"
+myStatusBar = "~/.xmonad/dzen/status_bars/dzen_main.sh | LANG=es dzen2 -dock -x '0' -w '866' -y '750' -h '18' -fg '#999999' -bg '#000000' -ta 'l' -fn '-xos4-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*' -e 'button2=;'"
+myMpdBar = "~/.xmonad/dzen/status_bars/dzen_audio.sh | LANG=es dzen2 -dock -x '866' -w '500' -y '750' -h '18' -fg '#999999' -bg '#000000' -ta 'r' -fn '-xos4-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*' -e 'button2=;'"
 myBitmapsDir = ".xmonad/dzen/icons"
 
 -- ### Main ### --
@@ -114,39 +114,32 @@ main = do
 myStartupHook :: X ()
 myStartupHook = do
     setWMName "LG3D"
-    spawn "feh --bg-scale /home/coke/Imágenes/Wallpapers/mr-ro4k.jpg"
+    spawn "feh --bg-scale ~/Imágenes/Wallpapers/mr-ro4k.jpg"
     spawn "compton -cfb -D 1 -r 10 -l -15 -t -12 -o 0.6 -e 1.0 -i 1.0"
     spawn "setxkbmap es"
     spawn "xscreensaver -nosplash"
     spawn "xsetroot -cursor_name left_ptr"
     spawn "synergy-core --client --name cKlap --daemon --restart 192.168.1.2"
-    spawn "ck-launch-session dbus-session --exit-with-session"
     spawn "dropbox start"
-    spawn "npm run start --prefix /home/coke/git/Odrive"
-    spawn "~/.xmonad/dzen/status_checks/checker.sh"
+    spawn "npm run start --prefix ~/git/Odrive"
+    spawn "/home/coke/.xmonad/dzen/status_checks/checker.sh"
     spawnOn "www" "google-chrome-stable -restore-last-session"
-    spawnOn "file" "thunar /home/coke/"
+    spawnOn "file" "thunar"
     spawnOn "file" "thunar /"
-    spawnOn "net" "xfce4-terminal -e '/home/coke/.xmonad/waitcon.sh 2'"
-    spawnOn "net" "xfce4-terminal -e '/home/coke/.xmonad/waitcon.sh 3'"
-    spawnOn "net" "xfce4-terminal -e '/home/coke/.xmonad/waitcon.sh 4'"
-    spawnOn "net" "xfce4-terminal -e '/home/coke/.xmonad/waitcon.sh 5'"
-    spawnOn "net" "xfce4-terminal"
-    spawnOn "com" "/home/coke/git/station/AppRun"
+    spawnOn "net" "xfce4-terminal -e '/home/coke/.xmonad/cKmayhem.sh'"
+    spawnOn "com" "~/git/station/AppRun"
     spawnOn "com" "telegram-desktop"
-    --spawnOn "com" "skypeforlinux"
     spawnOn "cKlap" "/home/coke/.xmonad/cKpanel.sh"
-    -- #spawnOn "cKlap" "xfce4-terminal -T htop -x htop"
 
 -- ### ManageHook ### --
 myManageHook :: ManageHook
 myManageHook = (composeAll . concat $
     [ [resource     =? r            --> doIgnore                |   r   <- myIgnores] -- ignore desktop
-    , [className    =? c            --> doShift  "dev"    |   c   <- myDev    ] -- move myDev to dev
-    , [className    =? c            --> doShift  "file"       |   c   <- myFiles  ] -- move myFiles to file
-    , [className    =? c            --> doShift  "media"      |   c   <- myMedia  ] -- move myMedia to media
-    , [className    =? c            --> doShift  "com"        |   c   <- myChat   ] -- move myChat  to com
-    , [className    =? c            --> doShift  "vm"       |   c   <- myVBox   ] -- move myVBox  to virt
+    , [className    =? c            --> doShift  "dev"    	|   c   <- myDev    ] -- move myDev to dev
+    , [className    =? c            --> doShift  "file"       	|   c   <- myFiles  ] -- move myFiles to file
+    , [className    =? c            --> doShift  "media"      	|   c   <- myMedia  ] -- move myMedia to media
+    , [className    =? c            --> doShift  "com"       	|   c   <- myChat   ] -- move myChat  to com
+    , [className    =? c            --> doShift  "vm"       	|   c   <- myVBox   ] -- move myVBox  to virt
     , [className    =? c            --> doCenterFloat           |   c   <- myFloats ] -- float my floats
     , [name         =? n            --> doCenterFloat           |   n   <- myNames  ] -- float my names
     , [isFullscreen                 --> myDoFullFloat                           ]]) 
@@ -180,8 +173,9 @@ myLogHook h = dynamicLogWithPP $ defaultPP
       , ppHidden            =   dzenColor "#cccccc" "#000000" . pad
       , ppHiddenNoWindows   =   dzenColor "#999999" "#000000" . pad
       , ppUrgent            =   dzenColor "#ff0000" "#000000" . pad
+      , ppOutput            =   hPutStrLn h
       , ppWsSep             =   " "
-      , ppSep               =   " · "
+      , ppSep               =   " | "
       , ppLayout            =   dzenColor "#00aa6c" "#000000" .
                                 (\x -> case x of
                                     "Spacing 7 ResizableTall"             ->      "^i(" ++ myBitmapsDir ++ "/tall.xbm)"
@@ -194,7 +188,6 @@ myLogHook h = dynamicLogWithPP $ defaultPP
                                     _                           ->      x
                                 )
       , ppTitle             =   (" " ++) . dzenColor "#00aa6c" "#000000" . dzenEscape
-      , ppOutput            =   hPutStrLn h
     }
 
 -- ### LayoutHook ### --
@@ -212,7 +205,7 @@ myLayoutHook  = onWorkspaces ["cKlap"] cKlapLayout $
 
 cKlapLayout = avoidStruts $ tiled ||| Mirror tiled ||| noBorders Full ||| simpleFloat
  where
-   tiled = spacing  4 $ ResizableTall 1 (2/100) (1.70/3) []
+   tiled = spacing  4 $ ResizableTall 1 (2/100) (0.60) []
 
 wwwLayout = avoidStruts $ tiled ||| noBorders Full ||| Mirror tiled ||| simpleFloat
   where
@@ -224,7 +217,7 @@ simpLayout = avoidStruts $ tiled ||| noBorders Full ||| Mirror tiled ||| simpleF
  
 vBoxLayout = avoidStruts $ noBorders simpleFloat ||| noBorders Full
  
-netLayout = avoidStruts $ smartBorders $ spacing 4 $ Mirror $ Grid ||| simpleFloat
+netLayout = avoidStruts $ smartBorders $ spacing 4 $ reflectHoriz Grid ||| simpleFloat
     
 mediaLayout = avoidStruts $ smartBorders $ reflectHoriz Full
 
@@ -242,7 +235,7 @@ colorNormalBorder   = "#CCCCCC"
 colorFocusedBorder  = "#EEEEEE"
  
 -- ### Fonts ### -- 
-barFont  = "-*-fixed-*-*-*-*-8-*-*-*-*-*-iso8859-1"
+barFont  = "-xos4-terminus-medium-*-*-*-9-*-*-*-*-*-iso10646-*"
 barXFont = "fixed"
 xftFont = "xft: fixed"
 
@@ -271,6 +264,13 @@ myDoFullFloat = doF W.focusDown <+> doFullFloat
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     [ ((modMask,                    xK_w        ), spawn "ooffice")
+    , ((modMask,		    xK_d        ), spawnSelected'	[("Synergy", "/home/coke/.xmonad/synergyconn.sh norestart")
+									,("Arandr", "arandr")
+									,("screen left", "/home/coke/.xmonad/lrandr.sh l")
+									,("screen right", "/home/coke/.xmonad/lrandr.sh r")
+									,("screen top", "/home/coke/.xmonad/lrandr.sh t")
+									,("screen bottom", "/home/coke/.xmonad/lrandr.sh b") 
+									])
     , ((modMask,                    xK_k        ), spawn $ XMonad.terminal conf)
     , ((modMask .|. controlMask,    xK_k        ), runOrRaise "xfce4-terminal" (className =? "xfce4-terminal"))
     , ((modMask,                    xK_F2       ), spawn "xscreensaver-command -lock && sudo s2ram")
@@ -296,7 +296,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((0,                          0x1008ff17  ), spawn "mpc next")
     , ((0,                          0x1008ff16  ), spawn "mpc prev")
     , ((modMask,                    xK_g        ), spawn "gimp")
-    , ((modMask .|. shiftMask,      xK_v        ), spawn "VirtualBox")
+    , ((modMask .|. shiftMask,      xK_v        ), spawn "virtualbox")
     , ((modMask .|. shiftMask,      xK_w        ), spawn "sudo wireshark")
     , ((modMask .|. controlMask,    xK_w        ), spawn "sudo zenmap")
     , ((modMask,                    xK_o        ), spawn "~/tor-browser_es-ES/Browser/start-tor-browser")
@@ -343,7 +343,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,        xK_KP_Insert        ), spawn "/home/coke/.xmonad/audioswitch.sh")
     , ((modMask,                    xK_m        ), spawn "vlc")
     , ((modMask .|. shiftMask,      xK_m        ), spawn "kodi")
-    , ((modMask,                    xK_e        ), spawn "visual-studio-code")
+    , ((modMask,                    xK_e        ), spawn "vscode")
     , ((modMask .|. shiftMask,      xK_e        ), spawn "gedit --new-window") 
     , ((modMask .|. controlMask,       xK_e        ), spawn "eclipse-bin-4.6")
     , ((modMask,                    xK_space    ), sendMessage NextLayout)
@@ -373,8 +373,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask,      xK_Left      ), shiftToPrev)
  
     -- quit, or restart
-    , ((modMask .|. shiftMask,      xK_q        ), io (exitWith ExitSuccess))
-    , ((modMask,                    xK_q        ), spawn "killall dzen2 && ~/.xmonad/reload.sh")
+    , ((modMask .|. shiftMask,      xK_q        ), spawn "killall dzen2 && tmux kill-server && xmonad --recompile && xmonad --restart")
     ]
     ++
     [((m .|. modMask, k), windows $ f i)

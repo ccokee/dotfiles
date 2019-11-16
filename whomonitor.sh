@@ -1,4 +1,4 @@
 #!/bin/bash
 
-while :; do clear; who -uHp; sleep 3; done
+while :; do clear; who -sHup; sleep 3; done
 

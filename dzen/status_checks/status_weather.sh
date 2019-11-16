@@ -54,7 +54,7 @@ case $(echo $forecast | awk '{print $1}') in
  ;;
 esac
 
-echo "${weaicon}${cnormal} ${temper}°${cnormal}" > /tmp/status_weather
+echo -e "${weaicon}${cnormal} ${temper}c${cnormal}" > /tmp/status_weather
 
 #Soleado
 #Parcialmente

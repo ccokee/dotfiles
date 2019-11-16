@@ -6,37 +6,25 @@ tmux new-window -t Main -n bitchX
 tmux new-window -t Main -n monitor
 
 # network #
-tmux select-window -t Main:0
-tmux split-window -v -p 78
-tmux split-window -v -p 10
-tmux select-pane -t 2
-tmux split-window -h -p 38
+tmux split-window -t Main:0 -v -p 78
+tmux split-window -t Main:0.1 -v -p 10
+tmux split-window -t Main:0.2 -h -p 40
 
-tmux select-pane -t 0
-tmux send-keys "wicd-curses" Enter
-tmux select-pane -t 1
-tmux send-keys "screen sleep 1; /home/coke/.xmonad/waitcon.sh 9" Enter
-tmux select-pane -t 2
-tmux send-keys "/home/coke/.xmonad/waitcon.sh 10" Enter
-tmux select-pane -t 3
-tmux send-keys "/home/coke/.xmonad/whomonitor.sh" Enter
+tmux send-keys -t Main:0.0 "while true; do sleep 1; nmtui; done" Enter
+tmux send-keys -t Main:0.1 "while true; do sleep 1; screen sleep 1; /home/coke/.xmonad/waitcon.sh 9; done" Enter
+tmux send-keys -t Main:0.2 "while true; do sleep 1; /home/coke/.xmonad/waitcon.sh 10; done" Enter
+tmux send-keys -t Main:0.3 "while true; do sleep 1; /home/coke/.xmonad/whomonitor.sh; done" Enter
 
 # bitchX # 
-tmux select-window -t Main:1
-tmux split-window -v -p 90
-tmux select-pane -t 0 
-tmux send-keys "screen sleep 1; tty-clock -csBSnr -C 1" Enter
-tmux select-pane -t 1
-tmux send-keys "/home/coke/.xmonad/waitcon.sh 1" Enter
+tmux split-window -t Main:1 -v -p 90 
+tmux send-keys -t Main:1.0 "sleep 1; screen sleep 1; tty-clock -csBSnr -C 1" Enter
+tmux send-keys -t Main:1.1 "while true; do /home/coke/.xmonad/waitcon.sh 1; done" Enter
 
 # monitor #
-tmux select-window -t Main:2
-tmux split-window -v -p 90
-tmux select-pane -t 0
-tmux send-keys "screen sleep 1; tty-clock -csBSnr -C 1" Enter
-tmux select-pane -t 1
-tmux send-keys "gotop" Enter
-
+tmux split-window -t Main:2 -v -p 90
+tmux send-keys -t Main:2.0 "screen sleep 1; tty-clock -csBSnr -C 1; done" Enter
+tmux send-keys -t Main:2.1 "gotop" Enter
+tmux select-pane -t Main:2.1
 
 tmux -2 attach-session -t Main
 
