@@ -17,12 +17,12 @@ tmux send-keys -t Main:0.3 "while true; do sleep 1; /home/coke/.xmonad/whomonito
 
 # bitchX # 
 tmux split-window -t Main:1 -v -p 90 
-tmux send-keys -t Main:1.0 "sleep 1; screen sleep 1; tty-clock -csBSnr -C 1" Enter
+tmux send-keys -t Main:1.0 "sleep 1; screen sleep 1; tty-clock -csBSnr -C 1; done" Enter
 tmux send-keys -t Main:1.1 "while true; do /home/coke/.xmonad/waitcon.sh 1; done" Enter
 
 # monitor #
 tmux split-window -t Main:2 -v -p 90
-tmux send-keys -t Main:2.0 "screen sleep 1; tty-clock -csBSnr -C 1; done" Enter
+tmux send-keys -t Main:2.0 "screen sleep 1; tty-clock -csBSnr -C 1" Enter
 tmux send-keys -t Main:2.1 "gotop" Enter
 tmux select-pane -t Main:2.1
 

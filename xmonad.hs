@@ -127,7 +127,6 @@ myStartupHook = do
     spawnOn "file" "thunar"
     spawnOn "file" "thunar /"
     spawnOn "net" "xfce4-terminal -e '/home/coke/.xmonad/cKmayhem.sh'"
-    spawnOn "com" "~/git/station/AppRun"
     spawnOn "com" "telegram-desktop"
     spawnOn "cKlap" "/home/coke/.xmonad/cKpanel.sh"
 
@@ -135,11 +134,11 @@ myStartupHook = do
 myManageHook :: ManageHook
 myManageHook = (composeAll . concat $
     [ [resource     =? r            --> doIgnore                |   r   <- myIgnores] -- ignore desktop
-    , [className    =? c            --> doShift  "dev"    	|   c   <- myDev    ] -- move myDev to dev
-    , [className    =? c            --> doShift  "file"       	|   c   <- myFiles  ] -- move myFiles to file
-    , [className    =? c            --> doShift  "media"      	|   c   <- myMedia  ] -- move myMedia to media
-    , [className    =? c            --> doShift  "com"       	|   c   <- myChat   ] -- move myChat  to com
-    , [className    =? c            --> doShift  "vm"       	|   c   <- myVBox   ] -- move myVBox  to virt
+    , [className    =? c            --> doShift  "dev"          |   c   <- myDev    ] -- move myDev to dev
+    , [className    =? c            --> doShift  "file"         |   c   <- myFiles  ] -- move myFiles to file
+    , [className    =? c            --> doShift  "media"        |   c   <- myMedia  ] -- move myMedia to media
+    , [className    =? c            --> doShift  "com"          |   c   <- myChat   ] -- move myChat  to com
+    , [className    =? c            --> doShift  "vm"           |   c   <- myVBox   ] -- move myVBox  to virt
     , [className    =? c            --> doCenterFloat           |   c   <- myFloats ] -- float my floats
     , [name         =? n            --> doCenterFloat           |   n   <- myNames  ] -- float my names
     , [isFullscreen                 --> myDoFullFloat                           ]]) 

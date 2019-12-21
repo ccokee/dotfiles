@@ -4,35 +4,35 @@ xmonad.hs:76:16: warning: [-Wdeprecations]
     (imported from XMonad.Actions.GridSelect):
     Deprecated: "Use def (from Data.Default, and re-exported from XMonad.Actions.GridSelect) instead."
 
-xmonad.hs:138:59: warning: [-Wtabs]
-    Tab character found here, and in 62 further locations.
-    Please use spaces instead.
-
-xmonad.hs:167:34: warning: [-Wdeprecations]
+xmonad.hs:166:34: warning: [-Wdeprecations]
     In the use of ‘defaultPP’ (imported from XMonad.Hooks.DynamicLog):
     Deprecated: "Use def (from Data.Default, and re-exported by XMonad.Hooks.DynamicLog) instead."
 
-xmonad.hs:208:12: warning: [-Wdeprecations]
+xmonad.hs:207:12: warning: [-Wdeprecations]
     In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
     Deprecated: "Use spacingRaw instead."
 
-xmonad.hs:212:13: warning: [-Wdeprecations]
+xmonad.hs:211:13: warning: [-Wdeprecations]
     In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
     Deprecated: "Use spacingRaw instead."
 
-xmonad.hs:216:13: warning: [-Wdeprecations]
+xmonad.hs:215:13: warning: [-Wdeprecations]
     In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
     Deprecated: "Use spacingRaw instead."
 
-xmonad.hs:220:42: warning: [-Wdeprecations]
+xmonad.hs:219:42: warning: [-Wdeprecations]
     In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
     Deprecated: "Use spacingRaw instead."
 
-xmonad.hs:245:5: warning: [-Wdeprecations]
+xmonad.hs:244:5: warning: [-Wdeprecations]
     In the use of ‘defaultXPConfig’ (imported from XMonad.Prompt):
     Deprecated: "Use def (from Data.Default, and re-exported from XMonad.Prompt) instead."
 
-xmonad.hs:280:61: warning: [-Wdeprecations]
+xmonad.hs:266:17: warning: [-Wtabs]
+    Tab character found here, and in 57 further locations.
+    Please use spaces instead.
+
+xmonad.hs:279:61: warning: [-Wdeprecations]
     In the use of ‘defaultGSConfig’
     (imported from XMonad.Actions.GridSelect):
     Deprecated: "Use def (from Data.Default, and re-exported from XMonad.Actions.GridSelect) instead."
