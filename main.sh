@@ -3,6 +3,7 @@
 tmux -2 new-session -d -s Main
 tmux rename-window -t Main network
 tmux new-window -t Main -n bitchX
+tmux new-window -t Main -n mutt
 tmux new-window -t Main -n monitor
 
 # network #
@@ -20,11 +21,14 @@ tmux split-window -t Main:1 -v -p 90
 tmux send-keys -t Main:1.0 "sleep 1; screen sleep 1; tty-clock -csBSnr -C 1; done" Enter
 tmux send-keys -t Main:1.1 "while true; do /home/coke/.xmonad/waitcon.sh 1; done" Enter
 
+# mutt #
+tmux send-keys -t Main:2.0 "mutt" Enter
+
 # monitor #
-tmux split-window -t Main:2 -v -p 90
-tmux send-keys -t Main:2.0 "screen sleep 1; tty-clock -csBSnr -C 1" Enter
-tmux send-keys -t Main:2.1 "gotop" Enter
-tmux select-pane -t Main:2.1
+tmux split-window -t Main:3 -v -p 90
+tmux send-keys -t Main:3.0 "screen sleep 1; tty-clock -csBSnr -C 1" Enter
+tmux send-keys -t Main:3.1 "gotop" Enter
+tmux select-pane -t Main:3.1
 
 tmux -2 attach-session -t Main
 

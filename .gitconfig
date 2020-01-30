@@ -1,0 +1,8 @@
+[user]
+	name = Jorge Curbera
+	email = jcurbr00@estudiantes.unileon.es
+[color]
+	status = auto
+	branch = auto
+	diff = auto
+	interactive = auto
